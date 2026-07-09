@@ -505,7 +505,63 @@ footer{
 
 
 }
+.kritik-form{
 
+    max-width:600px;
+
+    margin:auto;
+
+}
+
+
+.kritik-form input,
+.kritik-form textarea{
+
+
+    width:100%;
+
+    padding:15px;
+
+    margin:10px 0 20px;
+
+    border-radius:10px;
+
+    border:none;
+
+    background:#1e293b;
+
+    color:white;
+
+
+}
+
+
+
+.kritik-form textarea{
+
+    height:150px;
+
+    resize:none;
+
+}
+
+
+.page-header{
+
+    padding-top:150px;
+
+    text-align:center;
+
+}
+
+
+.page-header h1{
+
+    font-size:45px;
+
+    color:#00eaff;
+
+}
 
 
 
