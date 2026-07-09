@@ -1,0 +1,539 @@
+```css
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI", Arial, sans-serif;
+}
+
+
+html{
+    scroll-behavior:smooth;
+}
+
+
+body{
+
+    background:#050816;
+    color:white;
+    overflow-x:hidden;
+
+}
+
+
+
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+
+header{
+
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:1000;
+
+}
+
+
+.navbar{
+
+    width:90%;
+    margin:auto;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:20px 0;
+
+    backdrop-filter:blur(15px);
+
+}
+
+
+
+.logo{
+
+    font-size:25px;
+    font-weight:800;
+
+    color:white;
+
+}
+
+
+.logo span{
+
+    color:#00eaff;
+
+}
+
+
+
+
+
+.nav-menu{
+
+    display:flex;
+    gap:25px;
+
+    list-style:none;
+
+}
+
+
+
+.nav-menu a{
+
+    text-decoration:none;
+
+    color:white;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+
+
+.nav-menu a:hover{
+
+    color:#00eaff;
+
+}
+
+
+
+
+#themeToggle{
+
+    background:#00eaff;
+
+    border:none;
+
+    padding:10px 15px;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+}
+
+
+
+
+
+/* =========================
+ HERO SLIDER
+========================= */
+
+
+.hero{
+
+    height:100vh;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+
+
+
+.slide{
+
+    position:absolute;
+
+    width:100%;
+    height:100%;
+
+    opacity:0;
+
+    transition:1s;
+
+}
+
+
+
+.slide.active{
+
+    opacity:1;
+
+}
+
+
+
+.slide img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    filter:brightness(40%);
+
+}
+
+
+
+
+.hero-text{
+
+    position:absolute;
+
+    top:50%;
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    text-align:center;
+
+    width:80%;
+
+}
+
+
+
+
+.hero-text h1{
+
+    font-size:55px;
+
+    margin-bottom:20px;
+
+    animation:fadeUp 1s;
+
+}
+
+
+
+.hero-text p{
+
+    font-size:20px;
+
+}
+
+
+
+
+/* =========================
+ SECTION
+========================= */
+
+
+section{
+
+    padding:80px 8%;
+
+}
+
+
+
+
+section h2{
+
+    text-align:center;
+
+    font-size:35px;
+
+    margin-bottom:30px;
+
+    color:#00eaff;
+
+}
+
+
+
+
+.welcome p{
+
+    max-width:800px;
+
+    margin:auto;
+
+    text-align:center;
+
+    line-height:1.8;
+
+    color:#ddd;
+
+}
+
+
+
+
+
+/* =========================
+ CARD KEGIATAN
+========================= */
+
+
+.card-container{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:30px;
+
+}
+
+
+
+.card{
+
+    background:#111827;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    transition:.4s;
+
+    box-shadow:
+    0 0 20px rgba(0,234,255,.1);
+
+}
+
+
+
+.card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:
+    0 0 30px rgba(0,234,255,.4);
+
+}
+
+
+
+
+.card img{
+
+    width:100%;
+
+    height:200px;
+
+    object-fit:cover;
+
+}
+
+
+
+.card h3{
+
+    padding:20px 20px 10px;
+
+}
+
+
+
+.card p{
+
+    padding:0 20px 20px;
+
+    color:#bbb;
+
+}
+
+
+
+
+
+/* =========================
+ KRITIK SARAN
+========================= */
+
+
+.kritik-home{
+
+    text-align:center;
+
+}
+
+
+
+#listKritik{
+
+    background:#111827;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    margin-bottom:30px;
+
+}
+
+
+
+.button{
+
+    display:inline-block;
+
+    padding:15px 30px;
+
+    border-radius:30px;
+
+    background:#00eaff;
+
+    color:black;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+
+
+.button:hover{
+
+    transform:scale(1.05);
+
+}
+
+
+
+
+/* =========================
+ FOOTER
+========================= */
+
+
+footer{
+
+    padding:30px;
+
+    text-align:center;
+
+    background:#020617;
+
+    color:#aaa;
+
+}
+
+
+
+
+
+/* =========================
+ ANIMATION
+========================= */
+
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+
+
+
+
+
+/* =========================
+ RESPONSIVE
+========================= */
+
+
+@media(max-width:900px){
+
+
+.navbar{
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+
+.nav-menu{
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+}
+
+
+
+.hero-text h1{
+
+    font-size:35px;
+
+}
+
+
+
+.hero-text p{
+
+    font-size:16px;
+
+}
+
+
+}
+
+
+
+
+
+@media(max-width:500px){
+
+
+.nav-menu{
+
+    gap:15px;
+
+}
+
+
+
+.nav-menu a{
+
+    font-size:14px;
+
+}
+
+
+section{
+
+    padding:60px 5%;
+
+}
+
+
+}
+```
