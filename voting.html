@@ -1,0 +1,529 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+Voting Ketua OSIS
+</title>
+
+
+<link rel="stylesheet" href="css/style.css">
+
+
+</head>
+
+
+<body>
+
+
+
+
+<!-- NAVBAR -->
+
+<header>
+
+<nav class="navbar">
+
+
+<div class="logo">
+OSIS<span>DIGITAL</span>
+</div>
+
+
+
+
+<ul class="nav-menu">
+
+
+<li>
+<a href="index.html">
+Beranda
+</a>
+</li>
+
+
+<li>
+<a href="kegiatan.html">
+Kegiatan
+</a>
+</li>
+
+
+<li>
+<a href="tentang.html">
+Tentang
+</a>
+</li>
+
+
+<li>
+<a href="ketua.html">
+Ketua OSIS
+</a>
+</li>
+
+
+<li>
+<a href="voting.html">
+Voting
+</a>
+</li>
+
+
+<li>
+<a href="kritik.html">
+Kritik & Saran
+</a>
+</li>
+
+
+</ul>
+
+
+
+
+<button id="themeToggle">
+🌙
+</button>
+
+
+
+</nav>
+
+</header>
+
+
+
+
+
+
+
+
+
+<!-- HEADER -->
+
+
+<section class="page-header">
+
+
+<h1>
+Pemilihan Ketua OSIS
+</h1>
+
+
+<p>
+Gunakan hak suara kamu untuk menentukan pemimpin OSIS.
+</p>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- STATUS VOTING -->
+
+
+<section>
+
+
+<div id="statusVoting"
+class="voting-status">
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- KANDIDAT -->
+
+
+<section>
+
+
+<h2>
+Daftar Kandidat
+</h2>
+
+
+
+
+
+<div class="card-container">
+
+
+
+
+
+
+
+<div class="card">
+
+
+<img src="assets/img/kandidat1.jpg">
+
+
+
+<h3>
+Kandidat 01
+</h3>
+
+
+
+<p>
+Nama Calon Ketua OSIS
+</p>
+
+
+
+<button class="button vote-btn"
+onclick="pilihKandidat('Kandidat 01')">
+
+Pilih Kandidat
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="card">
+
+
+<img src="assets/img/kandidat2.jpg">
+
+
+
+<h3>
+Kandidat 02
+</h3>
+
+
+
+<p>
+Nama Calon Ketua OSIS
+</p>
+
+
+
+<button class="button vote-btn"
+onclick="pilihKandidat('Kandidat 02')">
+
+Pilih Kandidat
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="card">
+
+
+<img src="assets/img/kandidat3.jpg">
+
+
+
+<h3>
+Kandidat 03
+</h3>
+
+
+
+<p>
+Nama Calon Ketua OSIS
+</p>
+
+
+
+<button class="button vote-btn"
+onclick="pilihKandidat('Kandidat 03')">
+
+Pilih Kandidat
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- HASIL SEMENTARA -->
+
+
+<section class="welcome">
+
+
+<h2>
+Status Suara
+</h2>
+
+
+<p id="hasilVoting">
+
+Belum ada pemilih.
+
+</p>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<footer>
+
+
+<p>
+© 2026 OSIS Digital | Voting Ketua OSIS
+</p>
+
+
+</footer>
+
+
+
+
+<script src="js/script.js"></script>
+
+
+
+<script>
+
+
+function pilihKandidat(nama){
+
+
+let sudahMemilih =
+localStorage.getItem(
+"sudahVoting"
+);
+
+
+
+if(sudahMemilih){
+
+
+alert(
+"Kamu sudah melakukan voting."
+);
+
+
+return;
+
+
+}
+
+
+
+
+
+let suara =
+JSON.parse(
+localStorage.getItem(
+"suara"
+)
+)
+||
+[];
+
+
+
+
+suara.push(nama);
+
+
+
+localStorage.setItem(
+"suara",
+JSON.stringify(suara)
+);
+
+
+
+
+localStorage.setItem(
+"sudahVoting",
+"true"
+);
+
+
+
+alert(
+"Voting berhasil disimpan!"
+);
+
+
+
+tampilkanHasil();
+
+
+}
+
+
+
+
+
+
+
+function tampilkanHasil(){
+
+
+let suara =
+JSON.parse(
+localStorage.getItem(
+"suara"
+)
+)
+||
+[];
+
+
+
+
+let hasil={};
+
+
+
+suara.forEach(
+item=>{
+
+
+hasil[item]
+=
+(hasil[item] || 0)+1;
+
+
+}
+
+);
+
+
+
+
+
+let area =
+document.getElementById(
+"hasilVoting"
+);
+
+
+
+if(area){
+
+
+if(suara.length===0){
+
+
+area.innerHTML=
+"Belum ada pemilih.";
+
+
+}else{
+
+
+area.innerHTML="";
+
+
+
+for(let nama in hasil){
+
+
+area.innerHTML +=
+`
+
+${nama} :
+${hasil[nama]} suara
+
+<br>
+
+`;
+
+
+
+}
+
+
+}
+
+
+
+}
+
+
+
+}
+
+
+
+tampilkanHasil();
+
+
+
+</script>
+
+
+</body>
+
+</html>
+```
